@@ -1,12 +1,13 @@
 #
-
-
 class jenkins::install
 (
     $install_dir = '/var/opt/jenkins',
     $lv_size     = '2G',
     $user        = 'jenkins',
     $group       = 'jenkins',
+    $ensure      = 'present',
+    $packages    = [ 'java-1.6.0-openjdk','npm','git','ruby','python',"perl'],
+
 )
 
 {
@@ -19,7 +20,7 @@ class jenkins::install
 #####################################
 
     user { 'jenkins':
-        ensure           => present,
+        ensure           => "$ensure",
         uid              => 2436,
         gid              => 2436,
         comment          => 'Jenkins Continuous Build server',
@@ -68,32 +69,15 @@ class jenkins::install
 #
 #########################################
 
-  package{'java-1.6.0-openjdk':
-    ensure     => installed,
-    }
+  package{ "$packages":
+    ensure     => "$ensure",
+  }
 
-  package{'npm':
-    ensure     => installed,
-    }
-
-  package{'git':
-    ensure     => installed,
-    }
-  package{'python':
-    ensure     => installed,
-    }
-
-  package{'ruby':
-    ensure     => installed,
-    }
-  package{'perl':
-    ensure     => installed,
-    }
   package{'sass':
-    ensure   => installed,
+    ensure   => "$ensure",
     provider => 'gem',
     require  => Package['ruby'],
-    }
+  }
 
 
 
