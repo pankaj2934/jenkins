@@ -129,11 +129,11 @@ class jenkins::install
 #
 #########################################
   
-  file {'/var/lib/jenkins/plugins':
-        ensure  => directory,
-        owner   => 'jenkins',
-        group   => 'jenkins',
-        require => Package['jenkins']
+    file {'/var/lib/jenkins/plugins':
+      ensure          => directory,
+      owner           => 'jenkins',
+      group           => 'jenkins',
+      require         => Package['jenkins']
   }
 
   jenkins::plugin{'ssh-slaves':
