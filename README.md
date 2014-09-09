@@ -23,7 +23,7 @@ Getting Started
 
 What to Expect
 --------------
-After the puppet run is successful   **https://<servername>:8080**    should be live and show jenkins homepage
+After the puppet run is successful   **https://servername:8080**    should be live and show jenkins homepage
 
 
 what is installed 
