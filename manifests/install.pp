@@ -6,7 +6,7 @@ class jenkins::install
     $user        = 'jenkins',
     $group       = 'jenkins',
     $ensure      = 'present',
-    $packages    = [ "java-1.6.0-openjdk", "npm", "git", "python", "perl"],
+    $packages    = [ "java-1.6.0-openjdk", "npm", "ruby", "git", "python", "perl"],
 
 )
 
@@ -18,7 +18,7 @@ class jenkins::install
 #
 #####################################
 
-    Package { ensure => "installed" }
+    Package { ensure => "$ensure" }
 
 ######################################
 #
@@ -78,10 +78,8 @@ class jenkins::install
 
   package{ $packages:  }
 
-  package{ "ruby":  }
 
   package{'sass':
-    ensure   => "$ensure",
     provider => 'gem',
     require  => Package['ruby'],
   }
