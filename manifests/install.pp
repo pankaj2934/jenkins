@@ -39,7 +39,11 @@ class jenkins::install
 
 
   }
-        
+    group {'jenkins':
+      ensure => "$ensure",
+      gid    => 2436,
+    }
+
 
 
 #########################################
