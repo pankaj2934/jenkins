@@ -3,7 +3,7 @@ MODULE TO BUILD JENKINS MASTER
 ==============================
 
 
--Author : iad@staples.com
+-Author :: iad@staples.com
 
 -Links  : [Project url](https://handlebar.staples.com:8443/projects/PUP/repos/jenkins/)
 
